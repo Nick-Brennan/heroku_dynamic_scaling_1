@@ -5,7 +5,7 @@ class TestController < ApplicationController
   	var1 = system 'heroku ps --app cli-test-1'
   	p "ok 2"
   	var2 = system 'heroku ps:scale web1=1 --app cli-test-1'
-  	var3 = system 'heroku ps:scale web2=1 --app cli-test-1'
+  	var3 = system 'heroku ps:scale web2=1 --app cli-test-1:standard-1x'
   	# var3 = system 'ps'
   	# var4 = system 'scale web1=1:standard-1x'
   	# system 'ps --help simple'
