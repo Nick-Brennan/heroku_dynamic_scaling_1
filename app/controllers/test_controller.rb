@@ -14,4 +14,10 @@ class TestController < ApplicationController
   	# p var4
   	render :inline => "<h1> Test </h1>"
   end
+
+  def off
+  	p "swithing dyno off"
+  	var1 = system 'heroku ps:stop web1'
+  	render :inline => "<h1> Check Web UI </h1>"
+  end
 end
