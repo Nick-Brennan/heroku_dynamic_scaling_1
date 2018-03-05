@@ -17,7 +17,10 @@ class TestController < ApplicationController
 
   def off
   	p "swithing dyno off"
-  	var1 = system 'heroku ps:stop web1'
+  	var1 = system 'heroku ps:stop web1 --app cli-test-1'
+  	var2 = system 'heroku ps:scale web1=0 --app cli-test-1'
+  	p var1
+  	p var2
   	render :inline => "<h1> Check Web UI </h1>"
   end
 end
