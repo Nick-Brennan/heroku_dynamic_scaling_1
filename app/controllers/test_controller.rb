@@ -14,6 +14,7 @@ class TestController < ApplicationController
 	  	p var1
 	  	p var2
 	  	p var3
+	  	# useless change
   	end
   	# p var4
   	render :inline => "<h1> Test </h1>"
