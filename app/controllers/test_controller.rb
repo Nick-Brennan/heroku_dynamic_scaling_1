@@ -11,7 +11,7 @@ class TestController < ApplicationController
 	  	# var3 = system 'ps'
 	  	# var4 = system 'scale web1=1:standard-1x'
 	  	# system 'ps --help simple'
-	  	# p var1
+	  	p var1
 	  	p var2
 	  	p var3
   	end
