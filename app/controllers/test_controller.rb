@@ -31,7 +31,7 @@ class TestController < ApplicationController
 	  		var1 = system 'heroku ps:stop web1 --app cli-test-1'
 	  		p var1
 	  	end
-	  	Thread.ew
+	  	Thread.new
 	  		var2 = system 'heroku ps:scale web1=0 --app cli-test-1'
 	  		p var2
 	  	end
