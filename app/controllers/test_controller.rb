@@ -27,19 +27,19 @@ class TestController < ApplicationController
   def off
   	Thread.new do
 	  	p "switching dyno off"
-	  	Thread.new
+	  	Thread.new do
 	  		var1 = system 'heroku ps:stop web1 --app cli-test-1'
 	  		p var1
 	  	end
-	  	Thread.new
+	  	Thread.new do
 	  		var2 = system 'heroku ps:scale web1=0 --app cli-test-1'
 	  		p var2
 	  	end
-	  	Thread.new
+	  	Thread.new do
 	  		var3 = system 'heroku ps:stop web2 --app cli-test-1'
 	  		p var3
 	  	end
-	  	Thread.new
+	  	Thread.new do
 	  		var4 = system 'heroku ps:scale web2=0 --app cli-test-1'
 	  		p var4
 	  	end
