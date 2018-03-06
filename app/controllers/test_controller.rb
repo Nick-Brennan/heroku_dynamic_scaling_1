@@ -7,11 +7,17 @@ class TestController < ApplicationController
 	  	p "ok 2"
 	  	# var1 = system 'heroku ps:resize web=standard-1x --app cli-test-1'
 	  	Thread.new do
-	  		var2 = system 'heroku ps:scale web1=1 --app cli-test-1'
-	  		p var2
+	  		var2 =false
+	  		while !var2
+	  			var2 = system 'heroku ps:scale web1=1 --app cli-test-1'
+	  			p var2
+	  		end
 	  	end
 	  	Thread.new do
-	  		var3 = system 'heroku ps:scale web2=1 --app cli-test-1'
+	  		var3 = false
+	  		while !var3
+	  			var3 = system 'heroku ps:scale web2=1 --app cli-test-1'
+	  		end
 	  		p var3
 	  	end
 	  	# var3 = system 'ps'
@@ -28,20 +34,32 @@ class TestController < ApplicationController
   	Thread.new do
 	  	p "switching dyno off"
 	  	Thread.new do
-	  		var1 = system 'heroku ps:stop web1 --app cli-test-1'
-	  		p var1
+	  		var1 = false
+	  		while !var1
+	  			var1 = system 'heroku ps:stop web1 --app cli-test-1'
+	  			p var1
+	  		end
 	  	end
 	  	Thread.new do
-	  		var2 = system 'heroku ps:scale web1=0 --app cli-test-1'
-	  		p var2
+	  		var2 = false
+	  		while !var2
+	  			var2 = system 'heroku ps:scale web1=0 --app cli-test-1'
+	  			p var2
+	  		end
 	  	end
 	  	Thread.new do
-	  		var3 = system 'heroku ps:stop web2 --app cli-test-1'
-	  		p var3
+	  		var3 = false
+	  		while !var3
+	  			var3 = system 'heroku ps:stop web2 --app cli-test-1'
+	  			p var3
+	  		end
 	  	end
 	  	Thread.new do
-	  		var4 = system 'heroku ps:scale web2=0 --app cli-test-1'
-	  		p var4
+	  		var4 = false
+	  		while !var4
+	  			var4 = system 'heroku ps:scale web2=0 --app cli-test-1'
+	  			p var4
+	  		end
 	  	end
 	  	# var5 = system 'heroku ps:resize web=hobby --app cli-test-1'
 	  	# p var5
